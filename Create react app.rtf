@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf400
+{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red47\green180\blue29;\red46\green174\blue187;
+\red47\green231\blue26;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c20238\c73898\c14947;\cssrgb\c20196\c73240\c78250;
+\cssrgb\c17862\c90513\c12810;}
+\margl1440\margr1440\vieww15680\viewh12140\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \CocoaLigature0 Jeffs-MBP:~ jeligon$ cd OneDrive/Coding/Docker/Docker-Kubernetes-Class-2019/\
+Jeffs-MBP:Docker-Kubernetes-Class-2019 jeligon$ ls\
+Dockerfile		docker-compose-test	simpleweb		visits\
+Jeffs-MBP:Docker-Kubernetes-Class-2019 jeligon$ create-react-app frontend\
+\
+Creating a new React app in \cf3 /Users/jeligon/OneDrive/Coding/Docker/Docker-Kubernetes-Class-2019/frontend\cf2 .\
+\
+Installing packages. This might take a couple of minutes.\
+Installing \cf4 react\cf2 , \cf4 react-dom\cf2 , and \cf4 react-scripts\cf2 ...\
+\
+\
+> fsevents@1.2.8 install /Users/jeligon/OneDrive/Coding/Docker/Docker-Kubernetes-Class-2019/frontend/node_modules/chokidar/node_modules/fsevents\
+> node install\
+\
+[fsevents] Success: "/Users/jeligon/OneDrive/Coding/Docker/Docker-Kubernetes-Class-2019/frontend/node_modules/chokidar/node_modules/fsevents/lib/binding/Release/node-v64-darwin-x64/fse.node" is installed via remote\
+\
+> fsevents@1.2.8 install /Users/jeligon/OneDrive/Coding/Docker/Docker-Kubernetes-Class-2019/frontend/node_modules/jest-haste-map/node_modules/fsevents\
+> node install\
+\
+[fsevents] Success: "/Users/jeligon/OneDrive/Coding/Docker/Docker-Kubernetes-Class-2019/frontend/node_modules/jest-haste-map/node_modules/fsevents/lib/binding/Release/node-v64-darwin-x64/fse.node" is installed via remote\
++ react-dom@16.8.6\
++ react@16.8.6\
++ react-scripts@3.0.0\
+added 1528 packages from 746 contributors and audited 878612 packages in 52.622s\
+found \cf5 0\cf2  vulnerabilities\
+\
+\
+Success! Created frontend at /Users/jeligon/OneDrive/Coding/Docker/Docker-Kubernetes-Class-2019/frontend\
+Inside that directory, you can run several commands:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf4   npm start\cf2 \
+    Starts the development server.\
+\
+\cf4   npm run build\cf2 \
+    Bundles the app into static files for production.\
+\
+\cf4   npm test\cf2 \
+    Starts the test runner.\
+\
+\cf4   npm run eject\cf2 \
+    Removes this tool and copies build dependencies, configuration files\
+    and scripts into the app directory. If you do this, you can\'92t go back!\
+\
+We suggest that you begin by typing:\
+\
+\cf4   cd\cf2  frontend\
+  \cf4 npm start\cf2 \
+\
+Happy hacking!\
+Jeffs-MBP:Docker-Kubernetes-Class-2019 jeligon$ \
+\
+\
+\
+Build Docker Image of React app:\
+\
+docker build -f Dockerfile.dev .\
+\
+Run Docker image of react app by copying over entire frontend directory:\
+\
+docker run -p 3000:3000 6ca69156daf9\
+\
+Run Docker image of react app by mapping local frontend directory to /app inside container:\
+-v /app/node_modules // make an exception to not map the local \'93node-modules\'94 directory which was built inside container using nom install when container was built\
+-v $(pwd):/app  //  map local current directory (pwd) to \'93/app\'94 inside container\
+\
+docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app 6ca69156daf9\
+\
+To make this easier, use Docker Compose file.\
+\
+\
+\
+\
+\
+\
+\
+}
