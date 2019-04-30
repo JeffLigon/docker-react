@@ -1,4 +1,5 @@
-# testing changes
+# changed --coverage to -e CI=true -- --watchAll=false
+#  as suggested in Q&A, so that 'npm run test' ends with exit code 0
 sudo: required
 services:
   - docker
@@ -8,3 +9,16 @@ before_install:
 
 script:
   - docker run -e CI=true jeffligon/docker-react npm run test -- --watchAll=false
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: docker-react
+  env: DockerReact-env
+  bucket_name: "elasticbeanstalk-us-east-2-765735861180"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SECRET_KEY"
