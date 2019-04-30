@@ -16,4 +16,5 @@ RUN npm run build
 # /app/build is directory at end with production file to serve up by nginx
 
 FROM nginx
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html
