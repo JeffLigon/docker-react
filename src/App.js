@@ -10,7 +10,7 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>This is testing changing local copy to effect container. Hi again 2.</p>  
+        <p>I now changed this on the feature branch.</p>  
         
         <a
           className="App-link"
