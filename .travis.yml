@@ -1,4 +1,4 @@
-# changed --coverage to -e CI=true -- --watchAll=false
+#  changed --coverage to -e CI=true -- --watchAll=false
 #  as suggested in Q&A, so that 'npm run test' ends with exit code 0
 sudo: required
 services:
