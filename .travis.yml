@@ -15,6 +15,7 @@ deploy:
   region: "us-east-2"
   app: docker-react
   env: DockerReact-env
+# To find bucket_name, search S3 buckets, look for "elasticbeanstalk"  
   bucket_name: "elasticbeanstalk-us-east-2-765735861180"
   bucket_path: "docker-react"
   on:
