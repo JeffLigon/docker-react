@@ -13,11 +13,11 @@ script:
 # All of these first parameters can be found in the Elastic Beanstalk console
 deploy:
   provider: elasticbeanstalk
-  region: "us-east-2"
+  region: "us-east-1"
   app: jeff-docker-react
   env: Jeffdockerreact-env
 # To find bucket_name, search S3 buckets, look for "elasticbeanstalk"  
-  bucket_name: "elasticbeanstalk-us-east-2-765735861180"
+  bucket_name: "elasticbeanstalk-us-east-1-136046391710"
   bucket_path: "jeff-docker-react"
   on:
     branch: master
