@@ -10,7 +10,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <p>I now changed this on the feature branch.</p>  
+        <p>I now changed this on the feature branch.</p> 
+        <p>Testing new build in AWS deployment.</p> 
         
         <a
           className="App-link"
