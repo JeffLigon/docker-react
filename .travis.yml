@@ -11,6 +11,8 @@ script:
   - docker run -e CI=true jeffligon/docker-react npm run test -- --watchAll=false
 
 # All of these first parameters can be found in the Elastic Beanstalk console
+# Found experimental way to use AWS session tokens:
+#   https://travis-ci.community/t/aws-session-token-aws-elasticbeanstalk/9099
 deploy:
   edge:
     source: 'native-api/dpl'
@@ -20,7 +22,9 @@ deploy:
   app: jeff-docker-react
   env: Jeffdockerreact-env
 # To find bucket_name, search S3 buckets, look for "elasticbeanstalk"  
-  bucket_name: "elasticbeanstalk-us-east-1-77"
+# Every time you update this codebase you need to grab temporary credentials (~/.aws/credentials)
+#  and update env variables in the Travis CI repo Settings (AWS_ACCESS_KEY,AWS_SECRET_KEY,AWS_SESSION_TOKEN) 
+  bucket_name: "elasticbeanstalk-us-east-1-136046391710"
   bucket_path: "jeff-docker-react"
   on:
     branch: master
